@@ -12,26 +12,45 @@ if (strings.length == 0) {
     process.exit(-1);
 }
 
-var expressoes = parse_expressoes(strings);
+var expressoes = converter_strings_em_expressoes(strings);
 var resultados = executar_expressoes(expressoes);
 imprimir_expressoes_e_resultados(expressoes, resultados);
 
 process.exit(0);
 
 function ler_entrada(nome_do_arquivo) {
+    var fs = require('fs');
+    var arquivo = fs.readFileSync(nome_do_arquivo);
+    var json = JSON.parse(arquivo);
+
+    if (json.expressao != undefined) {
+        return [json.expressao];
+    }
     return [];
 }
 
-function parse_expressoes(strings) {
-    return [];
+
+function converter_strings_em_expressoes(strings) {
+    var expressao = strings[0];
+    var expressoes = [];
+
+    expressoes.push(expressao);
+
+    return expressoes;
 }
 
 function executar_expressoes(expressoes) {
-    return [];
+    var expressao = expressoes[0];
+    var resultado = eval(expressao);
+    var resultados = [];
+
+    resultados.push(resultado);
+
+    return resultados;
 }
 
 function imprimir_expressoes_e_resultados(expressoes, resultados) {
-
+    console.log("expressão [" + expressoes[0] + "] = "+ resultados[0]);
 }
 
 function ajuda() {
