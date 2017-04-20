@@ -21,41 +21,59 @@ process.exit(0);
 
 function ler_entrada(nome_do_arquivo) {
     var fs = require('fs');
-    var arquivo = fs.readFileSync(nome_do_arquivo);
-    var json = JSON.parse(arquivo);
+    // var arquivo = fs.readFileSync(nome_do_arquivo);
+    // var json = JSON.parse(arquivo);
+    var json = require(nome_do_arquivo);
 
     if (json.expressao != undefined) {
         return [json.expressao];
+    }
+    else if(json.expressoes != undefined){
+      return json.expressoes;
     }
     return [];
 }
 
 
 function converter_strings_em_expressoes(strings) {
-    var expressao = strings[0];
+    var expressao;
     var expressoes = [];
 
-    expressoes.push(expressao);
+    for (var i = 0; i < strings.length; i++) {
+      expressao = strings[i]
+      expressoes.push(expressao);
+    }
 
     return expressoes;
 }
 
 function executar_expressoes(expressoes) {
-    var expressao = expressoes[0];
-    var resultado = eval(expressao);
+    var expressao;
+    var resultado;
     var resultados = [];
-
-    resultados.push(resultado);
-
+    for (var i = 0; i < expressoes.length; i++) {
+      resultado = eval(expressoes[i]);
+      resultados.push(resultado);
+    }
     return resultados;
 }
 
 function imprimir_expressoes_e_resultados(expressoes, resultados) {
-    console.log("expressão [" + expressoes[0] + "] = "+ resultados[0]);
+  for (var i = 0; i < expressoes.length; i++) {
+    console.log("expressão [" + expressoes[i] + "] = "+ resultados[i]);
+  }
 }
 
 function salvar_expressoes_e_resultados(nome_do_arquivo, expressoes, resultados) {
-
+  var fs = require('fs');
+  var json = {};
+  var s;
+  for(var i = 0; i< expressoes.length; i++)
+   {
+     json[expressoes[i]]=resultados[i];
+   }
+  s = JSON.stringify(json);
+  fs.writeFileSync(nome_do_arquivo, s);
 }
 
 function ajuda() {
