@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "csv-string": "^2.3.2",
     "read-xml": "^2.0.0",
     "xml2js": "^0.4.17"
   }
