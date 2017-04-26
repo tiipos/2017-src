@@ -1,7 +1,12 @@
 lerJSONComReadFileSync();
 lerJSONComReadFile();
 var json = lerJSONComRequire();
-console.log(json[0].matricula);
+
+console.log(json[1].matricula);
+console.log(json[1].nome);
+console.log(json[1].cpf);
+console.log(json[1].email);
+console.log(json[1].telefone);
 
 function lerJSONComReadFileSync() {
     var fs = require('fs');
@@ -36,6 +41,8 @@ function lerJSONComReadFile() {
     // console.log('terminou a leitura');
     // console.log(json);
 
+    // pode ser que não funcione porque pode finalizar
+    // a função sem terminar de ler o arquivo
     return json;
 }
 
