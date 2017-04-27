@@ -1,10 +1,11 @@
 var nomeDoArquivo = __dirname + '/natalcard.xml';
 
-lerXMLComReadXml(nomeDoArquivo, function(err, data) {
-    console.log(data);
-});
+// lerXMLComReadXml(nomeDoArquivo, function(err, data) {
+//     console.log(data);
+// });
 
 lerXMLComXml2Js(nomeDoArquivo, function(err, result) {
+    console.log(result.alunos.aluno[1]);
     console.log(result.alunos.aluno[1]['$'].matricula);
     console.log(result.alunos.aluno[1].nome[0]);
     console.log(result.alunos.aluno[1].cpf[0]);
