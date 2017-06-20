@@ -1,0 +1,14 @@
+{
+  "name": "samu",
+  "version": "1.0.0",
+  "description": "",
+  "main": "samu.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "L. A. Minora",
+  "license": "ISC",
+  "dependencies": {
+    "node-rest-client": "^3.1.0"
+  }
+}
