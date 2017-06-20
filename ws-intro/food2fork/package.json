@@ -1,0 +1,14 @@
+{
+  "name": "food2fork",
+  "version": "1.0.0",
+  "description": "",
+  "main": "cliente_food2fork.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Leonardo Ataide Minora",
+  "license": "ISC",
+  "dependencies": {
+    "node-rest-client": "^3.1.0"
+  }
+}
